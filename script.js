@@ -849,6 +849,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const slides = [
         {
+            title: "Luxury Pool Stays in Wayanad",
+            desc: "Unwind in the lap of nature with exclusive private pool villas nestled in the lush green hills of Wayanad.",
+            img: "./assets/aboutPictures/Wayanad_poolStay.jpeg"
+        },
+        {
             title: "Joyful Family Stays",
             desc: "Create unforgettable memories with your loved ones in our spacious, safe, and welcoming family properties.",
             img: "./assets/aboutPictures/Family_Stays.png"
