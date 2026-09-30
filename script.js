@@ -135,7 +135,7 @@ hamburgers.forEach(btn => {
 document.querySelectorAll('.mm-link').forEach(link => {
     link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
-        if (navbar) navbar.classList.remove('menu-open');
+        const sno = document.getElementById('navbar-scrolled'); if (sno) sno.classList.remove('menu-open');
     });
 });
 
