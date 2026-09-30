@@ -1713,7 +1713,7 @@ body {
 
 /* Logo Tab Cutout */
 .logo-tab {
-    top: 16px; /* Touch the white frame */
+    top: 0; /* Touch the white frame */
     left: 50%;
     transform: translateX(-50%);
     background: #fff;
@@ -1726,7 +1726,7 @@ body {
 }
 .logo-tab::before, .logo-tab::after {
     right: -30px;
-    top: 0;
+    top: 16px;
     width: 30px;
     height: 30px;
     background: radial-gradient(circle at bottom right, transparent 30px, #fff 30px);
@@ -1734,7 +1734,7 @@ body {
 }
 .logo-tab::before {
     left: -30px;
-    top: 0;
+    top: 16px;
     width: 30px;
     height: 30px;
     background: radial-gradient(circle at bottom left, transparent 30px, #fff 30px);
@@ -1742,7 +1742,7 @@ body {
 }
 .logo-tab::after {
     right: -30px;
-    top: 0;
+    top: 16px;
     width: 30px;
     height: 30px;
     background: radial-gradient(circle at bottom right, transparent 30px, #fff 30px);
