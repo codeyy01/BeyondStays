@@ -1712,41 +1712,39 @@ body {
 .right-pill { right: 40px; }
 
 /* Logo Tab Cutout */
+
+
+
+
+
+
+/* Logo Tab Cutout */
 .logo-tab {
-    top: 0; /* Touch the white frame */
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    height: 76px;
+    padding: 0 40px;
     background: #fff;
-    padding: 12px 40px 16px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 40px 30px;
+    border-bottom-right-radius: 40px 30px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .logo-tab::before, .logo-tab::after {
-    right: -30px;
+    content: '';
+    position: absolute;
     top: 16px;
-    width: 30px;
+    width: 60px;
     height: 30px;
-    background: radial-gradient(circle at bottom right, transparent 30px, #fff 30px);
     box-shadow: none;
 }
 .logo-tab::before {
-    left: -30px;
-    top: 16px;
-    width: 30px;
-    height: 30px;
-    background: radial-gradient(circle at bottom left, transparent 30px, #fff 30px);
-    box-shadow: none;
+    left: -60px;
+    background: radial-gradient(60px 30px at bottom left, transparent 98%, #fff 99.5%);
 }
 .logo-tab::after {
-    right: -30px;
-    top: 16px;
-    width: 30px;
-    height: 30px;
-    background: radial-gradient(circle at bottom right, transparent 30px, #fff 30px);
-    box-shadow: none;
+    right: -60px;
+    background: radial-gradient(60px 30px at bottom right, transparent 98%, #fff 99.5%);
 }
 
 /* -- SCROLLED STATE (Unified Pill) -- */
