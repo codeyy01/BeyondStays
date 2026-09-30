@@ -70,7 +70,7 @@ async function fetchFAQ() {
         const res = await fetch('faq.json');
         if (!res.ok) throw new Error();
         faqData = await res.json();
-    } catch {
+    } catch (e) {
         faqData = [
             {
                 question: "Sample Question?",
@@ -592,7 +592,7 @@ function renderFAQ() {
     list.innerHTML = '';
 
     faqData.forEach((faq, i) => {
-        const item = el('div', 'faq-item reveal-up');
+        const item = el('div', 'faq-item');
         item.style.setProperty('--d', `${i * 0.1}s`);
 
         item.innerHTML = `

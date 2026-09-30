@@ -2897,3 +2897,73 @@ a {
     .faq-icon { width: 32px !important; height: 32px !important; font-size: 1.3rem !important; }
     .faq-answer { font-size: 0.95rem !important; }
 }
+
+
+/* =========================================
+   PACKAGES ARROWS AND INDICATORS
+   ========================================= */
+.pkg-arrow {
+    position: absolute;
+    top: calc(50% - 20px);
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #fff;
+    border: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+}
+.pkg-arrow:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+.pkg-arrow svg {
+    width: 28px;
+    height: 28px;
+    fill: #111;
+}
+.pkg-prev { left: 24px; }
+.pkg-next { right: 24px; }
+
+/* Hide arrows on mobile */
+@media (max-width: 768px) {
+    .pkg-arrow { display: none; }
+}
+
+.pkg-indicator-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.pkg-indicator {
+    width: 240px;
+    height: 6px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+.pkg-indicator-bar {
+    position: absolute;
+    top: 0; left: 0; height: 100%;
+    width: 15%; /* Default */
+    background: #5b6c4b; /* Dark Green */
+    border-radius: 6px;
+    transition: width 0.15s ease-out;
+}
+
+
+/* --- FAQ VISIBILITY FIX --- */
+.faq-item {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
