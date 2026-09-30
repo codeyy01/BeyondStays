@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<style>
+body { background: #faf7f2; padding: 50px; }
+.container {
+    display: flex;
+    align-items: flex-start;
+}
+.main {
+    width: 200px;
+    height: 400px;
+    background: #143505;
+    border-radius: 24px 0 24px 24px;
+}
+.logo-box {
+    width: 100px;
+    height: 100px;
+    background: #143505;
+    border-radius: 0 24px 24px 0;
+    position: relative;
+}
+.logo-box::before {
+    content: '';
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle at bottom right, transparent 24px, #143505 24px);
+}
+</style>
+<body>
+    <div class="container">
+        <div class="main"></div>
+        <div class="logo-box"></div>
+    </div>
+</body>
+</html>

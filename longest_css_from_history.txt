@@ -1,0 +1,808 @@
+Created At: 2026-09-28T00:07:24+05:30
+Completed At: 2026-09-28T00:07:24+05:30
+File Path: `file:///C:/Users/lenovo/.gemini/antigravity/brain/83b01f36-1797-4155-a46a-f3533e362465/.system_generated/steps/31/content.md`
+Total Lines: 2524
+Total Bytes: 47418
+Showing lines 1 to 800
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: Title: Live Content
+2: 
+3: Description: Fetched live
+4: 
+5: Source: https://tripwayinternational.com/style.css
+6: 
+7: ---
+8: 
+9: /* ===== TRIP WAY — style.css ===== */
+10: :root {
+11:     --green: #004526;
+12:     --green-light: #005c33;
+13:     --green-dark: #002e1a;
+14:     --cream: #faf7f2;
+15:     --white: #ffffff;
+16:     --text: #1a1a1a;
+17:     --text-muted: #6b7280;
+18:     --accent: #c8f0a0;
+19:     --gold: #d4a853;
+20:     --radius: 16px;
+21:     --radius-sm: 10px;
+22:     --shadow: 0 8px 40px rgba(0, 69, 38, 0.12);
+23:     --shadow-lg: 0 20px 60px rgba(0, 69, 38, 0.18);
+24:     --font-display: 'Fraunces', Georgia, serif;
+25:     --font-body: 'Poppins', sans-serif;
+26:     --nav-h: 72px;
+27:     --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+28: }
+29: 
+30: /* ── Reset ── */
+31: *,
+32: *::before,
+33: *::after {
+34:     box-sizing: border-box;
+35:     margin: 0;
+36:     padding: 0;
+37: }
+38: 
+39: html {
+40:     scroll-behavior: smooth;
+41:     overflow-x: hidden;
+42: }
+43: 
+44: body {
+45:     font-family: var(--font-body);
+46:     color: var(--text);
+47:     background: var(--cream);
+48:     overflow-x: hidden;
+49:     cursor: none;
+50: }
+51: 
+52: img {
+53:     display: block;
+54:     width: 100%;
+55:     object-fit: cover;
+56: }
+57: 
+58: a {
+59:     text-decoration: none;
+60:     color: inherit;
+61: }
+62: 
+63: ul {
+64:     list-style: none;
+65: }
+66: 
+67: button {
+68:     cursor: none;
+69:     border: none;
+70:     background: none;
+71:     font-family: inherit;
+72: }
+73: 
+74: /* ── Custom Cursor ── */
+75: .cursor {
+76:     position: fixed;
+77:     top: 0;
+78:     left: 0;
+79:     width: 10px;
+80:     height: 10px;
+81:     background: var(--green);
+82:     border-radius: 50%;
+83:     pointer-events: none;
+84:     z-index: 9999;
+85:     transform: translate(-50%, -50%);
+86:     transition: transform 0.1s, background 0.3s;
+87:     mix-blend-mode: multiply;
+88: }
+89: 
+90: .cursor-follower {
+91:     position: fixed;
+92:     top: 0;
+93:     left: 0;
+94:     width: 36px;
+95:     height: 36px;
+96:     border: 1.5px solid var(--green-dark);
+97:     border-radius: 50%;
+98:     pointer-events: none;
+99:     z-index: 9998;
+100:     transform: translate(-50%, -50%);
+101:     transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+102:     opacity: 0.5;
+103: }
+104: 
+105: .cursor.expanded {
+106:     transform: translate(-50%, -50%) scale(3);
+107:     background: rgba(0, 69, 38, 0.2);
+108: }
+109: 
+110: /* ── Loader ── */
+111: #loader {
+112:     position: fixed;
+113:     inset: 0;
+114:     background: var(--green);
+115:     display: flex;
+116:     align-items: center;
+117:     justify-content: center;
+118:     z-index: 10000;
+119:     transition: opacity 0.6s, visibility 0.6s;
+120: }
+121: 
+122: #loader.done {
+123:     opacity: 0;
+124:     visibility: hidden;
+125: }
+126: 
+127: .loader-content {
+128:     text-align: center;
+129: }
+130: 
+131: .loader-logo {
+132:     font-family: var(--font-display);
+133:     font-size: 3rem;
+134:     font-weight: 700;
+135:     color: var(--white);
+136:     letter-spacing: -1px;
+137: }
+138: 
+139: .loader-logo img {
+140:     height: 70px;
+141:     width: auto;
+142: }
+143: 
+144: .loader-line {
+145:     width: 200px;
+146:     height: 1px;
+147:     background: rgba(255, 255, 255, 0.2);
+148:     margin: 24px auto 16px;
+149:     overflow: hidden;
+150: }
+151: 
+152: .loader-fill {
+153:     height: 100%;
+154:     background: var(--accent);
+155:     width: 0;
+156:     animation: fillBar 1.8s ease 0.3s forwards;
+157: }
+158: 
+159: .loader-sub {
+160:     color: rgba(255, 255, 255, 0.5);
+161:     font-size: 0.85rem;
+162:     letter-spacing: 0.1em;
+163:     font-weight: 300;
+164:     font-style: italic;
+165: }
+166: 
+167: @keyframes fillBar {
+168:     to {
+169:         width: 100%;
+170:     }
+171: }
+172: 
+173: @keyframes fadeSlideUp {
+174:     from {
+175:         opacity: 0;
+176:         transform: translateY(20px);
+177:     }
+178: 
+179:     to {
+180:         opacity: 1;
+181:         transform: translateY(0);
+182:     }
+183: }
+184: 
+185: /* ── Navbar ── */
+186: #navbar {
+187:     position: fixed;
+188:     top: 0;
+189:     left: 0;
+190:     right: 0;
+191:     z-index: 900;
+192:     transition: var(--transition);
+193: }
+194: 
+195: #navbar.scrolled {
+196:     background: rgba(250, 247, 242, 0.96);
+197:     backdrop-filter: blur(16px);
+198:     box-shadow: 0 1px 0 rgba(0, 69, 38, 0.08);
+199: }
+200: 
+201: .nav-inner {
+202:     max-width: 1280px;
+203:     margin: auto;
+204:     padding: 0 40px;
+205:     height: var(--nav-h);
+206:     display: flex;
+207:     align-items: center;
+208:     gap: 48px;
+209: }
+210: 
+211: .nav-logo {
+212:     font-family: var(--font-display);
+213:     font-size: 1.6rem;
+214:     font-weight: 700;
+215:     color: var(--white);
+216:     transition: color var(--transition);
+217:     margin-right: auto;
+218: }
+219: 
+220: .nav-logo img {
+221:     height: 44px;
+222:     width: auto;
+223:     transition: opacity 0.3s ease;
+224: }
+225: 
+226: .nav-logo span {
+227:     color: var(--accent);
+228: }
+229: 
+230: #navbar.scrolled .nav-logo {
+231:     color: var(--green);
+232: }
+233: 
+234: #navbar.scrolled .nav-logo span {
+235:     color: var(--green);
+236: }
+237: 
+238: .nav-links {
+239:     display: flex;
+240:     gap: 32px;
+241: }
+242: 
+243: .nav-links a {
+244:     font-size: 0.85rem;
+245:     font-weight: 500;
+246:     letter-spacing: 0.04em;
+247:     color: rgba(255, 255, 255, 0.85);
+248:     transition: color 0.3s;
+249:     position: relative;
+250: }
+251: 
+252: .nav-links a::after {
+253:     content: '';
+254:     position: absolute;
+255:     bottom: -4px;
+256:     left: 0;
+257:     right: 0;
+258:     height: 1px;
+259:     background: var(--accent);
+260:     transform: scaleX(0);
+261:     transform-origin: left;
+262:     transition: transform 0.3s;
+263: }
+264: 
+265: .nav-links a:hover {
+266:     color: var(--white);
+267: }
+268: 
+269: .nav-links a:hover::after {
+270:     transform: scaleX(1);
+271: }
+272: 
+273: #navbar.scrolled .nav-links a {
+274:     color: var(--text-muted);
+275: }
+276: 
+277: #navbar.scrolled .nav-links a:hover {
+278:     color: var(--green);
+279: }
+280: 
+281: #navbar.scrolled .nav-links a::after {
+282:     background: var(--green);
+283: }
+284: 
+285: .nav-cta {
+286:     padding: 10px 24px;
+287:     background: var(--white);
+288:     color: var(--green);
+289:     border-radius: 40px;
+290:     font-size: 0.82rem;
+291:     font-weight: 600;
+292:     letter-spacing: 0.04em;
+293:     transition: var(--transition);
+294: }
+295: 
+296: .nav-cta:hover {
+297:     background: var(--accent);
+298:     transform: translateY(-1px);
+299: }
+300: 
+301: #navbar.scrolled .nav-cta {
+302:     background: var(--green);
+303:     color: var(--white);
+304: }
+305: 
+306: #navbar.scrolled .nav-cta:hover {
+307:     background: var(--green-light);
+308: }
+309: 
+310: .hamburger {
+311:     display: none;
+312:     flex-direction: column;
+313:     gap: 6px;
+314:     padding: 4px;
+315: }
+316: 
+317: .hamburger span {
+318:     display: block;
+319:     width: 24px;
+320:     height: 1.5px;
+321:     background: var(--white);
+322:     transition: var(--transition);
+323: }
+324: 
+325: #navbar.scrolled .hamburger span {
+326:     background: var(--green);
+327: }
+328: 
+329: /* ── Mobile Menu ── */
+330: .mobile-menu {
+331:     position: fixed;
+332:     inset: 0;
+333:     top: var(--nav-h);
+334:     background: var(--green);
+335:     z-index: 800;
+336:     display: flex;
+337:     align-items: center;
+338:     justify-content: center;
+339:     transform: translateX(-100%);
+340:     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+341: }
+342: 
+343: .mobile-menu.open {
+344:     transform: translateX(0);
+345: }
+346: 
+347: .mobile-menu ul {
+348:     display: flex;
+349:     flex-direction: column;
+350:     gap: 32px;
+351:     text-align: center;
+352: }
+353: 
+354: .mobile-menu a {
+355:     font-family: var(--font-display);
+356:     font-size: 2rem;
+357:     color: var(--white);
+358:     font-weight: 400;
+359:     transition: color 0.3s;
+360: }
+361: 
+362: .mobile-menu a:hover {
+363:     color: var(--accent);
+364: }
+365: 
+366: /* ── Hero ── */
+367: #hero {
+368:     position: relative;
+369:     height: 100dvh;
+370:     min-height: 600px;
+371:     display: flex;
+372:     flex-direction: column;
+373:     justify-content: center;
+374:     overflow: hidden;
+375: }
+376: 
+377: .hero-slides {
+378:     position: absolute;
+379:     inset: 0;
+380: }
+381: 
+382: .hero-slide {
+383:     position: absolute;
+384:     inset: 0;
+385:     background-size: cover;
+386:     background-position: center;
+387:     opacity: 0;
+388:     transition: opacity 1.2s ease;
+389:     transform: scale(1.05);
+390: }
+391: 
+392: .hero-slide.active {
+393:     opacity: 1;
+394:     animation: heroZoom 8s ease forwards;
+395: }
+396: 
+397: @keyframes heroZoom {
+398:     from {
+399:         transform: scale(1.05)
+400:     }
+401: 
+402:     to {
+403:         transform: scale(1)
+404:     }
+405: }
+406: 
+407: .hero-overlay {
+408:     position: absolute;
+409:     inset: 0;
+410:     background: linear-gradient(135deg, rgba(0, 29, 16, 0.75) 0%, rgba(0, 69, 38, 0.4) 60%, transparent 100%);
+411: }
+412: 
+413: .hero-grain {
+414:     position: absolute;
+415:     inset: 0;
+416:     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+417:     opacity: 0.4;
+418:     pointer-events: none;
+419: }
+420: 
+421: .hero-content {
+422:     position: relative;
+423:     z-index: 2;
+424:     padding: 0 40px;
+425:     max-width: 1280px;
+426:     margin: auto;
+427:     padding-top: var(--nav-h);
+428: }
+429: 
+430: .hero-eyebrow {
+431:     display: inline-flex;
+432:     align-items: center;
+433:     gap: 10px;
+434:     background: rgba(255, 255, 255, 0.12);
+435:     backdrop-filter: blur(8px);
+436:     border: 1px solid rgba(255, 255, 255, 0.2);
+437:     color: rgba(255, 255, 255, 0.9);
+438:     font-size: 0.75rem;
+439:     letter-spacing: 0.12em;
+440:     font-weight: 500;
+441:     padding: 8px 18px;
+442:     border-radius: 40px;
+443:     margin-bottom: 28px;
+444:     animation: fadeUp 0.8s 0.3s ease both;
+445: }
+446: 
+447: .eyebrow-dot {
+448:     width: 6px;
+449:     height: 6px;
+450:     background: var(--accent);
+451:     border-radius: 50%;
+452:     animation: pulse 2s infinite;
+453: }
+454: 
+455: @keyframes pulse {
+456: 
+457:     0%,
+458:     100% {
+459:         opacity: 1;
+460:         transform: scale(1)
+461:     }
+462: 
+463:     50% {
+464:         opacity: 0.5;
+465:         transform: scale(1.4)
+466:     }
+467: }
+468: 
+469: .hero-title {
+470:     font-family: var(--font-display);
+471:     font-size: clamp(3.2rem, 8vw, 7rem);
+472:     font-weight: 600;
+473:     line-height: 1.05;
+474:     color: var(--white);
+475:     letter-spacing: -0.03em;
+476:     margin-bottom: 20px;
+477: }
+478: 
+479: .hero-line {
+480:     display: block;
+481:     animation: fadeUp 0.9s ease both;
+482: }
+483: 
+484: .hero-line:nth-child(1) {
+485:     animation-delay: 0.5s;
+486: }
+487: 
+488: .hero-line:nth-child(2) {
+489:     animation-delay: 0.65s;
+490: }
+491: 
+492: .hero-title .italic {
+493:     font-style: italic;
+494:     font-weight: 300;
+495:     color: var(--accent);
+496: }
+497: 
+498: .hero-desc {
+499:     color: rgba(255, 255, 255, 0.75);
+500:     font-size: 1.05rem;
+501:     line-height: 1.7;
+502:     margin-bottom: 36px;
+503:     max-width: 500px;
+504:     animation: fadeUp 0.9s 0.8s ease both;
+505: }
+506: 
+507: .hero-ctas {
+508:     display: flex;
+509:     gap: 16px;
+510:     flex-wrap: wrap;
+511:     animation: fadeUp 0.9s 0.95s ease both;
+512: }
+513: 
+514: @keyframes fadeUp {
+515:     from {
+516:         opacity: 0;
+517:         transform: translateY(28px)
+518:     }
+519: 
+520:     to {
+521:         opacity: 1;
+522:         transform: translateY(0)
+523:     }
+524: }
+525: 
+526: /* Buttons */
+527: .btn-primary {
+528:     display: inline-flex;
+529:     align-items: center;
+530:     gap: 10px;
+531:     background: var(--white);
+532:     color: var(--green);
+533:     padding: 14px 32px;
+534:     border-radius: 50px;
+535:     font-size: 0.9rem;
+536:     font-weight: 600;
+537:     letter-spacing: 0.02em;
+538:     transition: var(--transition);
+539:     border: 2px solid var(--white);
+540: }
+541: 
+542: .btn-primary:hover {
+543:     background: var(--accent);
+544:     border-color: var(--accent);
+545:     transform: translateY(-2px);
+546:     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+547: }
+548: 
+549: .btn-primary.sm {
+550:     padding: 11px 26px;
+551:     font-size: 0.84rem;
+552: }
+553: 
+554: .btn-arrow {
+555:     transition: transform 0.3s;
+556: }
+557: 
+558: .btn-primary:hover .btn-arrow {
+559:     transform: translateX(4px);
+560: }
+561: 
+562: .btn-ghost {
+563:     display: inline-flex;
+564:     align-items: center;
+565:     color: rgba(255, 255, 255, 0.85);
+566:     padding: 14px 28px;
+567:     border-radius: 50px;
+568:     font-size: 0.9rem;
+569:     font-weight: 500;
+570:     border: 1.5px solid rgba(255, 255, 255, 0.3);
+571:     transition: var(--transition);
+572: }
+573: 
+574: .btn-ghost:hover {
+575:     border-color: var(--white);
+576:     color: var(--white);
+577:     background: rgba(255, 255, 255, 0.08);
+578: }
+579: 
+580: /* Hero stats */
+581: .hero-stats {
+582:     position: absolute;
+583:     bottom: 48px;
+584:     left: 50%;
+585:     transform: translateX(-50%);
+586:     display: flex;
+587:     align-items: center;
+588:     justify-content: center;
+589:     gap: 28px;
+590:     padding: 18px 36px;
+591:     background: rgba(255, 255, 255, 0.12);
+592:     backdrop-filter: blur(16px);
+593:     border: 1px solid rgba(255, 255, 255, 0.15);
+594:     border-radius: 60px;
+595:     z-index: 2;
+596:     flex-wrap: wrap;
+597:     /* 🔥 important fix */
+598:     max-width: 90%;
+599: }
+600: 
+601: .hstat {
+602:     text-align: center;
+603: }
+604: 
+605: .hstat-n {
+606:     display: block;
+607:     font-family: var(--font-display);
+608:     font-size: 1.8rem;
+609:     font-weight: 600;
+610:     color: var(--white);
+611:     line-height: 1;
+612: }
+613: 
+614: .hstat-l {
+615:     display: block;
+616:     font-size: 0.72rem;
+617:     color: rgba(255, 255, 255, 0.6);
+618:     letter-spacing: 0.08em;
+619:     margin-top: 4px;
+620: }
+621: 
+622: .hstat-sep {
+623:     width: 1px;
+624:     height: 36px;
+625:     background: rgba(255, 255, 255, 0.2);
+626: }
+627: 
+628: .hero-dots {
+629:     position: absolute;
+630:     right: 40px;
+631:     top: 50%;
+632:     transform: translateY(-50%);
+633:     display: flex;
+634:     flex-direction: column;
+635:     gap: 8px;
+636:     z-index: 2;
+637: }
+638: 
+639: .hero-dot {
+640:     width: 6px;
+641:     height: 6px;
+642:     border-radius: 50%;
+643:     background: rgba(255, 255, 255, 0.35);
+644:     transition: var(--transition);
+645:     cursor: none;
+646: }
+647: 
+648: .hero-dot.active {
+649:     background: var(--white);
+650:     height: 20px;
+651:     border-radius: 4px;
+652: }
+653: 
+654: .hero-scroll {
+655:     position: absolute;
+656:     left: 40px;
+657:     bottom: 56px;
+658:     display: flex;
+659:     flex-direction: column;
+660:     align-items: center;
+661:     gap: 12px;
+662:     z-index: 2;
+663: }
+664: 
+665: .scroll-track {
+666:     width: 1px;
+667:     height: 60px;
+668:     background: rgba(255, 255, 255, 0.2);
+669:     overflow: hidden;
+670:     border-radius: 1px;
+671: }
+672: 
+673: .scroll-thumb {
+674:     width: 100%;
+675:     height: 40%;
+676:     background: var(--white);
+677:     animation: scrollThumb 2s ease infinite;
+678: }
+679: 
+680: @keyframes scrollThumb {
+681:     0% {
+682:         transform: translateY(-100%)
+683:     }
+684: 
+685:     100% {
+686:         transform: translateY(300%)
+687:     }
+688: }
+689: 
+690: .hero-scroll span {
+691:     color: rgba(255, 255, 255, 0.5);
+692:     font-size: 0.68rem;
+693:     letter-spacing: 0.15em;
+694:     writing-mode: vertical-rl;
+695: }
+696: 
+697: /* ── Marquee ── */
+698: .marquee-wrap {
+699:     background: var(--green);
+700:     overflow: hidden;
+701:     padding: 16px 0;
+702:     border-top: 1px solid rgba(255, 255, 255, 0.06);
+703: }
+704: 
+705: .marquee-track {
+706:     display: flex;
+707:     gap: 40px;
+708:     white-space: nowrap;
+709:     animation: marquee 22s linear infinite;
+710: }
+711: 
+712: .marquee-track span {
+713:     font-size: 0.8rem;
+714:     font-weight: 500;
+715:     letter-spacing: 0.14em;
+716:     color: rgba(255, 255, 255, 0.5);
+717:     text-transform: uppercase;
+718: }
+719: 
+720: .marquee-track .sep {
+721:     color: var(--accent);
+722: }
+723: 
+724: @keyframes marquee {
+725:     from {
+726:         transform: translateX(0)
+727:     }
+728: 
+729:     to {
+730:         transform: translateX(-50%)
+731:     }
+732: }
+733: 
+734: /* ── Section Basics ── */
+735: .section {
+736:     padding: 100px 0;
+737: }
+738: 
+739: .section-green {
+740:     background: var(--green);
+741: }
+742: 
+743: .container {
+744:     width: 100%;
+745:     max-width: 1280px;
+746:     margin: auto;
+747:     padding: 0 40px;
+748: }
+749: 
+750: .section-eyebrow {
+751:     font-size: 0.72rem;
+752:     font-weight: 600;
+753:     letter-spacing: 0.16em;
+754:     text-transform: uppercase;
+755:     color: var(--green);
+756:     margin-bottom: 16px;
+757:     display: flex;
+758:     align-items: center;
+759:     gap: 10px;
+760: }
+761: 
+762: .section-eyebrow::before {
+763:     content: '';
+764:     display: inline-block;
+765:     width: 24px;
+766:     height: 1.5px;
+767:     background: var(--green);
+768: }
+769: 
+770: .section-eyebrow.light {
+771:     color: rgba(255, 255, 255, 0.5);
+772: }
+773: 
+774: .section-eyebrow.light::before {
+775:     background: rgba(255, 255, 255, 0.4);
+776: }
+777: 
+778: .section-title {
+779:     font-family: var(--font-display);
+780:     font-size: clamp(2.4rem, 5vw, 4rem);
+781:     font-weight: 600;
+782:     line-height: 1.1;
+783:     letter-spacing: -0.025em;
+784:     color: var(--text);
+785: }
+786: 
+787: .section-title.light {
+788:     color: var(--white);
+789: }
+790: 
+791: .section-title em {
+792:     font-style: italic;
+793:     font-weight: 300;
+794:     color: var(--green);
+795: }
+796: 
+797: .section-title.light em {
+798:     color: var(--accent);
+799: }
+800: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

@@ -1,0 +1,177 @@
+/* --- NEW DESKTOP ABOUT LAYOUT --- */
+.hide-on-mobile { display: block; }
+.hide-on-desktop { display: none; }
+
+@media (max-width: 1024px) {
+    .hide-on-mobile { display: none !important; }
+    .hide-on-desktop { display: block !important; }
+}
+
+.about-desktop {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-desk-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.desk-eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.desk-title {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    color: var(--text);
+    text-transform: uppercase;
+}
+
+.desk-frame-small {
+    width: 100%;
+    height: 180px;
+    background: #e0e0e0;
+    border-radius: 12px;
+    margin: 16px 0;
+}
+
+.desk-body {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.desk-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 24px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: fit-content;
+    background: #fff;
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.desk-btn:hover {
+    background: #f5f5f5;
+}
+
+.desk-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #62654c;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+.about-desk-right {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+}
+
+.desk-green-card {
+    flex: 1;
+    background: #143505;
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.desk-green-top {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.desk-frame-main {
+    flex: 1;
+    background: #ccc;
+    height: 350px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.desk-frame-dots {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    gap: 4px;
+}
+
+.desk-frame-dots span {
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.desk-frame-dots span:first-child {
+    width: 20px;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.desk-logo-wrap {
+    width: 120px;
+    padding-top: 10px;
+}
+
+.desk-logo-wrap img {
+    width: 100%;
+    height: auto;
+}
+
+.desk-green-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 10px;
+}
+
+.desk-line {
+    height: 10px;
+    width: 50%;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.desk-sidebar {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.desk-side-box {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #d6d6d6;
+    border-radius: 16px;
+}
+
