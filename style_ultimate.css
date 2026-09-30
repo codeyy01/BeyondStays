@@ -1720,6 +1720,9 @@ body {
 
 /* Logo Tab Cutout */
 .logo-tab {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     top: 0;
     height: 76px;
     padding: 0 40px;
