@@ -1,101 +1,107 @@
 import re
 
-with open('style.css', 'r', encoding='utf-8') as f:
+with open('style_ultimate.css', 'r', encoding='utf-8') as f:
     css = f.read()
 
-# 1. Remove body { background: #123500; }
-css = css.replace('body { background: #123500; }', '')
+# We will remove the old #navbar styles and replace them with the 3 pieces styles
+new_css = '''
+/* -- 3 DISTINCT NAVBAR PIECES (INITIAL) -- */
+.nav-piece {
+    position: absolute;
+    z-index: 100;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-# 2. Update #navbar.cutout-mode
-old_nav_mode = '#navbar.cutout-mode {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    max-width: 100%;\n    background: transparent;\n    border: none;\n    backdrop-filter: none;\n    -webkit-backdrop-filter: none;\n    box-shadow: none;\n    z-index: 1000;\n}'
-new_nav_mode = '''#navbar.cutout-mode {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    transform: none !important;
-    width: 100% !important;
-    max-width: none !important;
-    background: transparent !important;
-    border: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: none !important;
-    z-index: 1000 !important;
-}'''
-css = css.replace(old_nav_mode, new_nav_mode)
-
-# 3. Fix nav links color specificity
-old_nav_links = '#navbar.cutout-mode .nav-links a {\n    color: #ffffff;\n    font-weight: 500;\n}'
-new_nav_links = '''#navbar.cutout-mode .nav-links a {
-    color: #ffffff !important;
-    font-weight: 500;
-}'''
-css = css.replace(old_nav_links, new_nav_links)
-
-# 4. Fix CTA color specificity
-old_cta = '#navbar.cutout-mode .nav-cta {\n    background: #ffffff;\n    color: var(--green);\n    border-radius: 40px;\n    padding: 10px 24px;\n}'
-new_cta = '''#navbar.cutout-mode .nav-cta {
-    background: #ffffff !important;
-    color: #123500 !important;
+/* Glass Pills */
+.left-pill, .right-pill {
+    top: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 40px;
-    padding: 10px 24px;
-}'''
-css = css.replace(old_cta, new_cta)
+    padding: 0 32px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.left-pill { left: 40px; }
+.right-pill { right: 40px; }
 
-# 5. Fix arrow styles
-old_hero_nav = '''.hero-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 48px;
-    height: 80px;
-    background: #ffffff;
-    z-index: 10;
+/* Logo Tab Cutout */
+.logo-tab {
+    top: -16px; /* Touch the white frame */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 12px 40px 16px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #123500;
-}'''
-new_hero_nav = '''.hero-nav {
+}
+.logo-tab::before, .logo-tab::after {
+    content: '';
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 56px;
-    height: 96px;
-    background: #ffffff;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.8rem;
-    color: #123500;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}'''
-css = css.replace(old_hero_nav, new_hero_nav)
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    transition: opacity 0.4s;
+}
+.logo-tab::before {
+    left: -30px;
+    border-top-right-radius: 30px;
+    box-shadow: 15px -15px 0 15px #fff;
+}
+.logo-tab::after {
+    right: -30px;
+    border-top-left-radius: 30px;
+    box-shadow: -15px -15px 0 15px #fff;
+}
 
-# 6. Make .hero-frame slightly taller if needed, but height is fine.
-# 7. In cutout mode, hide the old pseudo element underlines if any
-css += '\n#navbar.cutout-mode .nav-links a::after { display: none !important; }\n'
+/* -- SCROLLED STATE (Unified Pill) -- */
+.nav-piece.scrolled {
+    position: fixed;
+    top: 24px;
+}
+.left-pill.scrolled {
+    left: calc(50% - 250px);
+    transform: translateX(-100%);
+    border-radius: 50px 0 0 50px;
+    border-right: none;
+    padding-right: 20px;
+}
+.right-pill.scrolled {
+    right: calc(50% - 250px);
+    transform: translateX(100%);
+    border-radius: 0 50px 50px 0;
+    border-left: none;
+    padding-left: 20px;
+}
+.logo-tab.scrolled {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+    padding: 0 20px;
+    height: 50px;
+    top: 24px;
+}
+.logo-tab.scrolled::before, .logo-tab.scrolled::after {
+    opacity: 0;
+}
+'''
 
-with open('style.css', 'w', encoding='utf-8') as f:
+# We need to replace everything from /* -- Navbar (Cutout Mode - Initial) -- */ to /* Nav Links Base */
+css = re.sub(r'/\* -- Navbar \(Cutout Mode - Initial\) -- \*/.*?/\* Nav Links Base \*/', new_css + '\\n/* Nav Links Base */', css, flags=re.DOTALL)
+
+with open('style_ultimate.css', 'w', encoding='utf-8') as f:
     f.write(css)
 
-# Now fix index.html
-with open('index.html', 'r', encoding='utf-8') as f:
-    html = f.read()
-
-# Insert font Anton
-font_tag = '<link href=\"https://fonts.googleapis.com/css2?family=Anton&display=swap\" rel=\"stylesheet\" />'
-if 'family=Anton' not in html:
-    html = html.replace('<!-- Fonts -->', '<!-- Fonts -->\n    ' + font_tag)
-
-# Update arrows to beautiful unicode characters
-html = html.replace('<div class=\"hero-nav prev\" id=\"heroPrev\">&lt;</div>', '<div class=\"hero-nav prev\" id=\"heroPrev\">&#10094;</div>')
-html = html.replace('<div class=\"hero-nav next\" id=\"heroNext\">&gt;</div>', '<div class=\"hero-nav next\" id=\"heroNext\">&#10095;</div>')
-
-with open('index.html', 'w', encoding='utf-8') as f:
-    f.write(html)
+print("CSS updated.")
