@@ -833,3 +833,80 @@ if (aboutMainImg && aboutMainTitle && aboutMainDesc && aboutSidebarItems.length 
         }, 400); // Wait for fade out
     }, 4000); // Change every 4 seconds
 }
+
+
+// About Section Slider Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const mainImg = document.getElementById('aboutMainImg');
+    const mainTitle = document.getElementById('aboutMainTitle');
+    const mainDesc = document.getElementById('aboutMainDesc');
+    const thumbs = document.querySelectorAll('#aboutThumbnails .thumb');
+    const dots = document.querySelectorAll('#aboutSliderDots span');
+
+    const slides = [
+        {
+            title: "Joyful Family Stays",
+            desc: "Create unforgettable memories with your loved ones in our spacious, safe, and welcoming family properties.",
+            img: "./assets/aboutPictures/Family_Stays.png"
+        },
+        {
+            title: "Thrilling Northern Treks",
+            desc: "Fuel your adventurous spirit with our guided trekking experiences and cozy basecamps across the majestic North.",
+            img: "./assets/aboutPictures/North_trekking.jpeg"
+        },
+        {
+            title: "Romantic Kashmir Escapes",
+            desc: "Discover the paradise on earth with intimate, breathtaking stays designed perfectly for couples.",
+            img: "./assets/aboutPictures/kashmir_couples.jpeg"
+        },
+        {
+            title: "Authentic Backwaters",
+            desc: "Experience the authentic charm and tranquil backwaters of Kerala in our handpicked traditional retreats.",
+            img: "./assets/aboutPictures/cozy_staysInKerala.jpeg"
+        }
+    ];
+
+    let currentIndex = 0;
+
+    function updateSlider(index) {
+        currentIndex = index;
+        
+        // Fade out
+        mainImg.style.opacity = '0';
+        mainTitle.style.opacity = '0';
+        mainDesc.style.opacity = '0';
+        
+        setTimeout(() => {
+            mainImg.src = slides[index].img;
+            mainTitle.textContent = slides[index].title;
+            mainDesc.textContent = slides[index].desc;
+            
+            // Fade in
+            mainImg.style.opacity = '1';
+            mainTitle.style.opacity = '1';
+            mainDesc.style.opacity = '1';
+        }, 300);
+
+        // Update dots and thumbs
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        thumbs.forEach((thumb, i) => {
+            thumb.classList.toggle('active', i === index);
+        });
+    }
+
+    thumbs.forEach((thumb, i) => {
+        thumb.addEventListener('click', () => updateSlider(i));
+    });
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => updateSlider(i));
+    });
+
+    // Auto rotate every 5 seconds
+    setInterval(() => {
+        let next = (currentIndex + 1) % slides.length;
+        updateSlider(next);
+    }, 5000);
+});
+
