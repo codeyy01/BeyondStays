@@ -1726,7 +1726,7 @@ body {
 }
 .logo-tab::before, .logo-tab::after {
     right: -30px;
-    top: 16px;
+    top: 0;
     width: 30px;
     height: 30px;
     background: radial-gradient(circle at bottom right, transparent 30px, #fff 30px);
@@ -1734,7 +1734,7 @@ body {
 }
 .logo-tab::before {
     left: -30px;
-    top: 16px;
+    top: 0;
     width: 30px;
     height: 30px;
     background: radial-gradient(circle at bottom left, transparent 30px, #fff 30px);
@@ -1742,7 +1742,7 @@ body {
 }
 .logo-tab::after {
     right: -30px;
-    top: 16px;
+    top: 0;
     width: 30px;
     height: 30px;
     background: radial-gradient(circle at bottom right, transparent 30px, #fff 30px);
