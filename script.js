@@ -93,9 +93,14 @@ let lastLogo = '';
 window.addEventListener('scroll', () => {
     const scrolled = window.scrollY > 50;
     
-    navPieces.forEach(piece => {
-        piece.classList.toggle('scrolled', scrolled);
+    document.querySelectorAll('.nav-piece').forEach(piece => {
+        piece.classList.toggle('hidden', scrolled);
     });
+    
+    const stickyNav = document.getElementById('navbar-scrolled');
+    if (stickyNav) {
+        stickyNav.classList.toggle('visible', scrolled);
+    }
 
     if ($('btt')) {
         $('btt').classList.toggle('hidden', window.scrollY < 400);
