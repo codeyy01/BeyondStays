@@ -603,8 +603,8 @@ function initTestimonials() {
     }
 
     function goTesti(idx) {
-        const visibleCards = 2;
-        const maxIndex = total - visibleCards;
+        const visibleCards = window.innerWidth < 768 ? 1 : 2;
+        const maxIndex = Math.max(0, total - visibleCards);
 
         testiIdx = Math.max(0, Math.min(idx, maxIndex));
 
@@ -616,11 +616,20 @@ function initTestimonials() {
             .forEach((d, i) => d.classList.toggle('active', i === testiIdx));
     }
 
-    $('tPrev').addEventListener('click', () => goTesti(testiIdx > 0 ? testiIdx - 1 : total - 1));
-    $('tNext').addEventListener('click', () => goTesti(testiIdx < total - 1 ? testiIdx + 1 : 0));
+    tPrev.addEventListener('click', () => {
+        const maxIndex = total - (window.innerWidth < 768 ? 1 : 2);
+        goTesti(testiIdx > 0 ? testiIdx - 1 : maxIndex);
+    });
+    tNext.addEventListener('click', () => {
+        const maxIndex = total - (window.innerWidth < 768 ? 1 : 2);
+        goTesti(testiIdx < maxIndex ? testiIdx + 1 : 0);
+    });
 
     buildDots();
-    setInterval(() => goTesti(testiIdx < total - 1 ? testiIdx + 1 : 0), 5000);
+    setInterval(() => {
+        const maxIndex = total - (window.innerWidth < 768 ? 1 : 2);
+        goTesti(testiIdx < maxIndex ? testiIdx + 1 : 0);
+    }, 5000);
     window.addEventListener('resize', () => { testiIdx = 0; goTesti(0); });
 }
 
