@@ -1816,3 +1816,11 @@ a {
     gap: 32px;
     align-items: center;
 }
+
+
+.navbar-scrolled .nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
