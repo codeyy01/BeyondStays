@@ -1,4 +1,4 @@
-const localTravelData = [
+window.localTravelData = [
   {
     "place": "Kashmir",
     "region": "Domestic",

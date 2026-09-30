@@ -243,8 +243,8 @@ function initReveal() {
 }
 
 async function fetchData() {
-    if (typeof localTravelData !== "undefined") {
-        travelData = localTravelData;
+    if (typeof window.localTravelData !== "undefined") {
+        travelData = window.localTravelData;
     } else {
         travelData = getFallbackData();
     }
