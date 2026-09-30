@@ -335,54 +335,31 @@ function renderModernPackages() {
         const card = document.createElement('div');
         card.className = 'pkg-card';
         card.innerHTML = `
-            <!-- Top Image Section -->
-            <div class="pkg-img-wrap" style="cursor:pointer;" onclick="openModal(${index})">
-                <img src="${pkg.coverImage}?auto=compress&cs=tinysrgb&w=600" alt="${pkg.name}" loading="lazy" />
-                <div class="pkg-img-overlay"></div>
-                
-                <div class="pkg-badges">
-                    ${pkg.region === 'International' ? '<span class="pkg-badge">Popular</span>' : ''}
-                    <div class="pkg-arrow-btn" onclick="event.stopPropagation(); openModal(${index})">&#8599;</div>
-                </div>
-                
-                <div class="pkg-title-area">
-                    <div class="pkg-title">
-                        <h3>${pkg.name}</h3>
-                        <div class="pkg-location">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                            ${pkg.placeName}
-                        </div>
-                        <div class="pkg-desc-text">${pkg.description}</div>
-                    </div>
-                </div>
-            </div>
+            <img class="pkg-bg-img" src="${pkg.images && pkg.images.length > 0 ? pkg.images[0] : (pkg.coverImage || 'https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg')}" alt="${pkg.name}" loading="lazy">
+            <div class="pkg-gradient"></div>
             
-            <!-- Bottom Stats Section -->
-            <div class="pkg-stats-grid">
-                <div class="pkg-stat">
-                    <span>Price</span>
-                    <strong>${pkg.price}</strong>
-                </div>
-                <div class="pkg-stat">
-                    <span>Duration</span>
-                    <strong>${pkg.duration.split(' ')[0]} ${pkg.duration.split(' ')[1]}</strong>
-                </div>
-                <div class="pkg-stat">
-                    <span>Type</span>
-                    <strong>${pkg.region}</strong>
-                </div>
+            <div class="pkg-content">
+                <h3 class="pkg-title">${pkg.placeName}</h3>
+                <div class="pkg-subtitle">${pkg.name}</div>
                 
-                <div class="pkg-stat" style="grid-column: span 2;">
-                    <span>${levels[levelIdx]}</span>
-                    <div class="pkg-level-bar">
-                        <div class="pkg-level-fill ${levelClasses[levelIdx]}" style="width: ${70 + (index*10)%30}%"></div>
+                <p class="pkg-desc">${pkg.description || 'Explore the breathtaking beauty of ' + pkg.placeName + ' with our highly exclusive and beautifully curated package.'}</p>
+                <div class="pkg-read-more">Read more</div>
+                
+                <div class="pkg-tags">
+                    <div class="pkg-tag">
+                        <svg viewBox="0 0 24 24" fill="#fff"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.41l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.36-.36.59-.86.59-1.41s-.23-1.06-.59-1.41zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
+                        from ${pkg.price}
+                    </div>
+                    <div class="pkg-tag">
+                        <svg viewBox="0 0 24 24" fill="#fff"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        ${pkg.duration}
                     </div>
                 </div>
-                <div class="pkg-stat">
-                    <span>Rating</span>
-                    <div class="pkg-rating">
-                        ${rating} 
-                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                
+                <div class="pkg-action-row">
+                    <a href="#" class="pkg-btn">View Package</a>
+                    <div class="pkg-heart">
+                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </div>
                 </div>
             </div>
