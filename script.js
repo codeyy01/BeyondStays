@@ -85,22 +85,18 @@ async function fetchFAQ() {
 /* ══════════════════════════════════════
    NAVBAR
 ══════════════════════════════════════ */
-const navbar = $('navbar');
-const navLogo = document.querySelector('#navbar .nav-logo img');
+
+const navPieces = document.querySelectorAll('.nav-piece');
+const navLogo = document.querySelector('#navLogo');
 let lastLogo = '';
 
 window.addEventListener('scroll', () => {
     const scrolled = window.scrollY > 50;
-
-    if (navbar) {
-        navbar.classList.toggle('scrolled', scrolled);
-        if (scrolled) {
-            navbar.classList.remove('cutout-mode');
-        } else {
-            navbar.classList.add('cutout-mode');
-        }
-    }
     
+    navPieces.forEach(piece => {
+        piece.classList.toggle('scrolled', scrolled);
+    });
+
     if ($('btt')) {
         $('btt').classList.toggle('hidden', window.scrollY < 400);
     }
