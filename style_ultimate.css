@@ -2071,7 +2071,7 @@ a {
 }
 
 /* --- NEW MOBILE HERO REDESIGN --- */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /* Remove white border */
     .hero-frame { padding: 0 !important; border-radius: 0 !important; }
     
@@ -2128,7 +2128,7 @@ a {
 .mobile-break { display: none; }
 
 /* --- MOBILE FIXES BASED ON USER FEEDBACK --- */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /* 1. Remove green border */
     .hero-wrapper { 
         padding: 0 !important; 
@@ -2198,7 +2198,7 @@ a {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /* Remove rounded corners on hero images */
     .hero-slides, .hero-slides img {
         border-radius: 0 !important;
@@ -2216,7 +2216,7 @@ a {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /* Strict bottom-left positioning */
     .hero-ui-layer {
         position: absolute !important;
