@@ -3,18 +3,18 @@ import re
 with open('index.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
-with open('about_desktop.html', 'r', encoding='utf-8') as f:
-    desktop_html = f.read()
+# Add hamburger to navbar-scrolled
+hamburger_html = '''
+                    <button class="hamburger" aria-label="Menu">
+                        <span></span><span></span>
+                    </button>
+                </div>
+            </nav>'''
+html = re.sub(r'</ul>\s*</div>\s*</nav>', '</ul>\n' + hamburger_html, html, count=1)
 
-# Replace <div class="about-layout"> with the new desktop version + the mobile version
-replacement = desktop_html + '\n' + '<div class="about-mobile hide-on-desktop">\n<div class="about-layout">'
-
-html = html.replace('<div class="about-layout">', replacement)
-
-# We need to add a closing </div> for the about-mobile block
-# Find the end of the about section.
-# The end of about-layout is </div></div></section>
-html = html.replace('</div>\n        </div>\n    </section>\n\n    <section class="section">', '</div>\n        </div>\n        </div>\n    </section>\n\n    <section class="section">')
+# Add mobile-break to hero title
+html = re.sub(r'<div class="hero-giant-title">\s*DISCOVER\s*INDIA\s*</div>', '<div class="hero-giant-title">DISCOVER<br class="mobile-break">INDIA</div>', html)
 
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html)
+print("HTML modified.")

@@ -117,13 +117,17 @@ window.addEventListener('scroll', () => {
     }
 });
 
+
 // Hamburger
-const hamburger = $('hamburger');
-const mobileMenu = $('mobileMenu');
-if(hamburger) hamburger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-    if (navbar) navbar.classList.toggle('menu-open');
+const hamburgers = document.querySelectorAll('.hamburger');
+const mobileMenu = mobileMenu;
+hamburgers.forEach(btn => {
+    btn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        btn.classList.toggle('active');
+    });
 });
+
 document.querySelectorAll('.mm-link').forEach(link => {
     link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
