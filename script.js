@@ -118,15 +118,19 @@ window.addEventListener('scroll', () => {
 });
 
 
+
 // Hamburger
 const hamburgers = document.querySelectorAll('.hamburger');
-const mobileMenu = mobileMenu;
+const mobileMenu = document.getElementById('mobileMenu');
+const stickyNavOverlay = document.getElementById('navbar-scrolled');
 hamburgers.forEach(btn => {
     btn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
+        if(mobileMenu) mobileMenu.classList.toggle('open');
         btn.classList.toggle('active');
+        if(stickyNavOverlay) stickyNavOverlay.classList.toggle('menu-open');
     });
 });
+
 
 document.querySelectorAll('.mm-link').forEach(link => {
     link.addEventListener('click', () => {
