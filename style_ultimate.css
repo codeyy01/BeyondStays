@@ -2148,7 +2148,7 @@ a {
     
     /* 3. Hamburger styling */
     .navbar-scrolled .hamburger span {
-        background: var(--dark-green) !important;
+        background: var(--green) !important;
         height: 2px !important;
         width: 24px !important;
         border-radius: 2px !important;
@@ -2188,7 +2188,7 @@ a {
         align-items: center !important;
     }
     .mm-link {
-        color: var(--dark-green) !important;
+        color: var(--green) !important;
         font-size: 1.1rem !important;
         letter-spacing: 2px !important;
         text-transform: uppercase !important;
@@ -2212,5 +2212,32 @@ a {
         border: 1px solid rgba(255, 255, 255, 0.4) !important;
         color: #fff !important;
         box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* Strict bottom-left positioning */
+    .hero-ui-layer {
+        position: absolute !important;
+        inset: 0 !important;
+        padding: 0 !important;
+    }
+    .hero-left-content {
+        position: absolute !important;
+        bottom: 30px !important;
+        left: 20px !important;
+    }
+    /* Ensure the button itself has the exact glass effect */
+    .hero-left-content .hero-btn-pill {
+        background: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        color: #fff !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+        font-weight: 700 !important;
+        padding: 12px 30px !important;
+        border-radius: 40px !important;
     }
 }
