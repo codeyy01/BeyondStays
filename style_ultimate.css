@@ -1513,7 +1513,7 @@ a {
     color: #333;
 }
 
-.pkg-heart {
+.pkg-arrow-btn {
     width: 32px;
     height: 32px;
     background: rgba(255,255,255,0.9);
@@ -2695,7 +2695,7 @@ a {
 .pkg-btn:hover {
     background: var(--cream);
 }
-.pkg-heart {
+.pkg-arrow-btn {
     width: 46px;
     height: 46px;
     border-radius: 50%;
@@ -2709,10 +2709,10 @@ a {
     transition: background 0.3s;
     flex-shrink: 0;
 }
-.pkg-heart:hover {
+.pkg-arrow-btn:hover {
     background: rgba(255, 255, 255, 0.3);
 }
-.pkg-heart svg {
+.pkg-arrow-btn svg {
     width: 20px;
     height: 20px;
     fill: #fff;
