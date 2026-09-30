@@ -65,20 +65,25 @@ if (!window.cancelIdleCallback) {
   };
 }
 
-async function fetchFAQ() {
-    try {
-        const res = await fetch('faq.json');
-        if (!res.ok) throw new Error();
-        faqData = await res.json();
-    } catch (e) {
-        faqData = [
-            {
-                question: "Sample Question?",
-                answer: "Sample answer if JSON fails."
-            }
-        ];
-    }
-
+function fetchFAQ() {
+    faqData = [
+      {
+        "question": "How do I book a trip?",
+        "answer": "You can explore packages and click 'Book Now' to connect with us on WhatsApp. Our team will assist you with the complete booking process."
+      },
+      {
+        "question": "Can I customize my travel package?",
+        "answer": "Yes, all our packages can be customized based on your preferences, budget, and travel dates."
+      },
+      {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept UPI, bank transfer, and other secure payment methods. Details will be shared during booking."
+      },
+      {
+        "question": "Do you provide group discounts?",
+        "answer": "Yes, we offer special discounts for group bookings. Contact us for details."
+      }
+    ];
     renderFAQ();
 }
 
