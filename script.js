@@ -243,11 +243,9 @@ function initReveal() {
 }
 
 async function fetchData() {
-    try {
-        const res = await fetch('data.json?v=' + new Date().getTime());
-        if (!res.ok) throw new Error();
-        travelData = await res.json();
-    } catch {
+    if (typeof localTravelData !== "undefined") {
+        travelData = localTravelData;
+    } else {
         travelData = getFallbackData();
     }
     renderModernPackages();
