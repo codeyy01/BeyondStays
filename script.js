@@ -107,6 +107,7 @@ window.addEventListener('scroll', () => {
 
     if (!navLogo) return;
 
+    // Verified: Logo remains green in both states based on the new design.
     const newSrc = "./assets/nav-logo-green.png";
 
     if (lastLogo !== newSrc) {
