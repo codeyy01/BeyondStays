@@ -285,14 +285,18 @@ body {
 .hero-nav.prev::before {
     left: 0;
     top: -30px;
-    border-bottom-left-radius: 30px;
-    box-shadow: -15px 15px 0 15px #fff;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at top right, transparent 30px, #fff 30px);
+    box-shadow: none;
 }
 .hero-nav.prev::after {
     left: 0;
     bottom: -30px;
-    border-top-left-radius: 30px;
-    box-shadow: -15px -15px 0 15px #fff;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at bottom right, transparent 30px, #fff 30px);
+    box-shadow: none;
 }
 
 .hero-nav.next {
@@ -304,14 +308,18 @@ body {
 .hero-nav.next::before {
     right: 0;
     top: -30px;
-    border-bottom-right-radius: 30px;
-    box-shadow: 15px 15px 0 15px #fff;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at top left, transparent 30px, #fff 30px);
+    box-shadow: none;
 }
 .hero-nav.next::after {
     right: 0;
     bottom: -30px;
-    border-top-right-radius: 30px;
-    box-shadow: 15px -15px 0 15px #fff;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at bottom left, transparent 30px, #fff 30px);
+    box-shadow: none;
 }
 
 /* ── Hero UI Layer (Bottom Cards) ── */
@@ -1717,23 +1725,28 @@ body {
     justify-content: center;
 }
 .logo-tab::before, .logo-tab::after {
-    content: '';
-    position: absolute;
-    top: 0;
+    right: -30px;
+    top: 16px;
     width: 30px;
     height: 30px;
-    background: transparent;
-    transition: opacity 0.4s;
+    background: radial-gradient(circle at bottom right, transparent 30px, #fff 30px);
+    box-shadow: none;
 }
 .logo-tab::before {
     left: -30px;
-    border-top-right-radius: 30px;
-    box-shadow: 15px -15px 0 15px #fff;
+    top: 16px;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at bottom left, transparent 30px, #fff 30px);
+    box-shadow: none;
 }
 .logo-tab::after {
     right: -30px;
-    border-top-left-radius: 30px;
-    box-shadow: -15px -15px 0 15px #fff;
+    top: 16px;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at bottom right, transparent 30px, #fff 30px);
+    box-shadow: none;
 }
 
 /* -- SCROLLED STATE (Unified Pill) -- */
