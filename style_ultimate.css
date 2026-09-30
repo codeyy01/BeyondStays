@@ -277,7 +277,7 @@ body {
     justify-content: center;
 }
 .hero-nav.prev {
-    left: 16px;
+    left: 0;
     border-top-right-radius: 35px;
     border-bottom-right-radius: 35px;
     padding-right: 8px;
@@ -296,7 +296,7 @@ body {
 }
 
 .hero-nav.next {
-    right: 16px;
+    right: 0;
     border-top-left-radius: 35px;
     border-bottom-left-radius: 35px;
     padding-left: 8px;
@@ -1705,7 +1705,7 @@ body {
 
 /* Logo Tab Cutout */
 .logo-tab {
-    top: -16px; /* Touch the white frame */
+    top: 16px; /* Touch the white frame */
     left: 50%;
     transform: translateX(-50%);
     background: #fff;
