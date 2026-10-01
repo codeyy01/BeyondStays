@@ -34,7 +34,11 @@ window.localTravelData = [
           "Flight/Train Charges",
           "Any Extra Cabs",
           "Any cost arising due to natural calamities, weather problems, road blockage, political strikes etc."
-        ]
+        ],
+        "images": [
+          "./assets/packagePictures/Kashmir_Bachelors_package.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Kashmir_Bachelors_package.jpeg"
       },
       {
         "id": "kashmir-budget",
@@ -65,7 +69,11 @@ window.localTravelData = [
           "Flight/Train Charges",
           "Any Extra Cabs",
           "Any cost arising due to natural calamities, weather problems, road blockage, political strikes etc."
-        ]
+        ],
+        "images": [
+          "./assets/packagePictures/Kashmir_budget_package.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Kashmir_budget_package.jpeg"
       }
     ]
   },
@@ -109,7 +117,11 @@ window.localTravelData = [
           "No activities included in the package",
           "Heat Pillar - Room Heater - Extra Charge ₹500",
           "Any cost arising due to natural calamities, weather problems, road blockage, political strikes etc."
-        ]
+        ],
+        "images": [
+          "./assets/packagePictures/Manali_package.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Manali_package.jpeg"
       }
     ]
   },
@@ -136,7 +148,11 @@ window.localTravelData = [
           "Online Tour Coordinator"
         ],
         "inclusions": [],
-        "exclusions": []
+        "exclusions": [],
+        "images": [
+          "./assets/packagePictures/Goa_budget_package.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Goa_budget_package.jpeg"
       },
       {
         "id": "goa-budget-bike",
@@ -153,7 +169,11 @@ window.localTravelData = [
           "Local Exploration"
         ],
         "inclusions": [],
-        "exclusions": []
+        "exclusions": [],
+        "images": [
+          "./assets/packagePictures/Goa_budget_bike_package.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Goa_budget_bike_package.jpeg"
       }
     ]
   },
@@ -179,7 +199,11 @@ window.localTravelData = [
           "Local Transport"
         ],
         "inclusions": [],
-        "exclusions": []
+        "exclusions": [],
+        "images": [
+          "./assets/packagePictures/kasol.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/kasol.jpeg"
       },
       {
         "id": "sar-pass",
@@ -195,7 +219,11 @@ window.localTravelData = [
           "Local Transfers"
         ],
         "inclusions": [],
-        "exclusions": []
+        "exclusions": [],
+        "images": [
+          "./assets/packagePictures/Sarpass_trekking.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Sarpass_trekking.jpeg"
       }
     ]
   },
@@ -217,7 +245,11 @@ window.localTravelData = [
           "Waterfalls"
         ],
         "inclusions": [],
-        "exclusions": []
+        "exclusions": [],
+        "images": [
+          "./assets/packagePictures/Wayanad.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Wayanad.jpeg"
       }
     ]
   },
@@ -239,7 +271,11 @@ window.localTravelData = [
           "Comfortable Stay"
         ],
         "inclusions": [],
-        "exclusions": []
+        "exclusions": [],
+        "images": [
+          "./assets/packagePictures/Munnar.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Munnar.jpeg"
       }
     ]
   },
@@ -261,7 +297,11 @@ window.localTravelData = [
           "Scenic Views"
         ],
         "inclusions": [],
-        "exclusions": []
+        "exclusions": [],
+        "images": [
+          "./assets/packagePictures/Kodaikanal.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Kodaikanal.jpeg"
       }
     ]
   },
@@ -283,7 +323,11 @@ window.localTravelData = [
           "Heritage Stay"
         ],
         "inclusions": [],
-        "exclusions": []
+        "exclusions": [],
+        "images": [
+          "./assets/packagePictures/Ooty.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Ooty.jpeg"
       }
     ]
   },
@@ -305,7 +349,11 @@ window.localTravelData = [
           "Offbeat Stay"
         ],
         "inclusions": [],
-        "exclusions": []
+        "exclusions": [],
+        "images": [
+          "./assets/packagePictures/Munnar.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/Munnar.jpeg"
       }
     ]
   },
@@ -327,7 +375,11 @@ window.localTravelData = [
           "Tea Estate"
         ],
         "inclusions": [],
-        "exclusions": []
+        "exclusions": [],
+        "images": [
+          "./assets/packagePictures/kolukkumalai_sunrise.jpeg"
+        ],
+        "coverImage": "./assets/packagePictures/kolukkumalai_sunrise.jpeg"
       }
     ]
   }
