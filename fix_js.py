@@ -1,25 +1,16 @@
 import re
-
 with open('script.js', 'r', encoding='utf-8') as f:
     js = f.read()
 
-# Replace navbar scroll logic
-new_js = '''
-const navPieces = document.querySelectorAll('.nav-piece');
-const navLogo = document.querySelector('#navLogo');
-let lastLogo = '';
-
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY > 50;
-    
-    navPieces.forEach(piece => {
-        piece.classList.toggle('scrolled', scrolled);
-    });
-'''
-
-js = re.sub(r'const navbar = \$\(''navbar''\);.*?window\.addEventListener\(''scroll'', \(\) => \{.*?if \(navbar\) \{.*?\}\n', new_js, js, flags=re.DOTALL)
+js = js.replace('if (slider && pkgModal) {', 'const modalSlider = document.getElementById("packagesSlider");\n    if (modalSlider && pkgModal) {')
+js = js.replace("slider.addEventListener('click',", "modalSlider.addEventListener('click',")
+js = js.replace("Array.from(slider.children)", "Array.from(modalSlider.children)")
 
 with open('script.js', 'w', encoding='utf-8') as f:
     f.write(js)
 
-print("JS updated.")
+with open('index.html', 'r', encoding='utf-8') as f:
+    html = f.read()
+html = re.sub(r'script\.js\?v=[0-9]+', 'script.js?v=9998', html)
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(html)
