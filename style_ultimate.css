@@ -3427,3 +3427,15 @@ a {
 /* Force hide any stray scrollbars globally for sliders just in case */
 .packages-slider::-webkit-scrollbar, .packages-slider-container::-webkit-scrollbar { display: none !important; }
 
+
+
+/* --- FIX SPACING BETWEEN PACKAGES AND POLICY --- */
+#destinations.section { padding-bottom: 0 !important; }
+#policy.section { padding-top: 60px !important; }
+.packages-slider-container { padding-bottom: 20px !important; }
+
+@media (max-width: 768px) {
+    #destinations.section { padding-bottom: 0 !important; }
+    #policy.section { padding-top: 40px !important; }
+    .packages-slider-container { padding-bottom: 0 !important; }
+}
