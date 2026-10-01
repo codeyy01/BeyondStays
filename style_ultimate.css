@@ -2954,9 +2954,11 @@ a {
 .pkg-indicator-bar {
     position: absolute;
     top: 0; left: 0; height: 100%;
-    width: 100%; transform-origin: left; transform: scaleX(0.15); will-change: transform;
-    background: #5b6c4b; /* Dark Green */
+    width: 25%;
+    background: var(--green);
     border-radius: 6px;
+    will-change: transform;
+    transform: translateX(0);
     transition: transform 0.1s ease-out;
 }
 

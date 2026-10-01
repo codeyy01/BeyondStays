@@ -399,12 +399,11 @@ function renderModernPackages() {
 
         const updateIndicator = () => {
             if (maxScroll <= 0) {
-                indicator.style.transform = 'scaleX(1)';
+                indicator.style.transform = 'translateX(0)';
                 return;
             }
             const scrollPercentage = (slider.scrollLeft / maxScroll);
-            const availableWidth = 100 - minWidth;
-            indicator.style.transform = `scaleX(${(minWidth + (scrollPercentage * availableWidth)) / 100})`;
+            indicator.style.transform = `translateX(${scrollPercentage * 300}%)`;
         };
 
         window.addEventListener('resize', () => {
@@ -879,6 +878,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeModal = () => {
             pkgModal.classList.remove('active');
             document.body.style.overflow = '';
+            
+            // Restart auto-slide
+            if (window.packageAutoSlide) clearInterval(window.packageAutoSlide);
+            if (modalSlider) {
+                window.packageAutoSlide = setInterval(() => {
+                    const card = modalSlider.querySelector('.pkg-card');
+                    if (!card) return;
+                    const cardWidth = card.offsetWidth + 24;
+                    const maxScroll = modalSlider.scrollWidth - modalSlider.clientWidth;
+                    if (modalSlider.scrollLeft >= maxScroll - 10) {
+                        modalSlider.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        modalSlider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                    }
+                }, 4000);
+            }
         };
 
         pkgModalClose.addEventListener('click', closeModal);
@@ -887,6 +902,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function openPkgModal(pkg) {
+    if (window.packageAutoSlide) clearInterval(window.packageAutoSlide);
     const pkgModal = document.getElementById('pkgModal');
     const pkgModalBody = document.getElementById('pkgModalBody');
     const pkgModalWaBtn = document.getElementById('pkgModalWaBtn');
