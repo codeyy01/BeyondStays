@@ -27,7 +27,7 @@
     padding: 0;
 }
 html {
-    scroll-behavior: smooth;
+    
 }
 body {
     font-family: var(--font-body);
@@ -1435,12 +1435,12 @@ a {
     padding: 20px 0;
 }
 
-.packages-slider {
+.packages-slider {\n    will-change: transform, scroll-position;\n    transform: translateZ(0);
     display: flex;
     gap: 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    
     padding: 0 20px 40px 20px; /* space for shadow */
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
@@ -1449,7 +1449,7 @@ a {
     display: none;
 }
 
-.pkg-card {
+.pkg-card {\n    will-change: transform;\n    transform: translateZ(0);
     flex: 0 0 calc(33.333% - 16px);
     min-width: 320px;
     background: #fff;
@@ -1463,12 +1463,12 @@ a {
 }
 
 @media (max-width: 1024px) {
-    .pkg-card {
+    .pkg-card {\n    will-change: transform;\n    transform: translateZ(0);
         flex: 0 0 calc(50% - 12px);
     }
 }
 @media (max-width: 600px) {
-    .pkg-card {
+    .pkg-card {\n    will-change: transform;\n    transform: translateZ(0);
         flex: 0 0 90%;
     }
 }
@@ -1505,7 +1505,7 @@ a {
 
 .pkg-badge {
     background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(4px);
+    
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.75rem;
@@ -1517,7 +1517,7 @@ a {
     width: 32px;
     height: 32px;
     background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(4px);
+    
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2547,12 +2547,12 @@ a {
     position: relative;
     margin: 0 auto;
 }
-.packages-slider {
+.packages-slider {\n    will-change: transform, scroll-position;\n    transform: translateZ(0);
     display: flex;
     gap: 32px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    
     padding: 0 40px 40px 40px; /* padding for shadow and edges */
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -2561,7 +2561,7 @@ a {
     display: none;
 }
 
-.pkg-card {
+.pkg-card {\n    will-change: transform;\n    transform: translateZ(0);
     flex: 0 0 calc(33.333% - 22px) !important;
     min-width: 340px !important;
     height: 480px !important;
@@ -2583,7 +2583,7 @@ a {
     box-shadow: 0 30px 60px rgba(0,0,0,0.18) !important;
 }
 
-.pkg-bg-img {
+.pkg-bg-img {\n    will-change: transform;\n    transform: translateZ(0);
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
@@ -2591,7 +2591,7 @@ a {
     z-index: 1;
     transition: transform 0.7s ease;
 }
-.pkg-card:hover .pkg-bg-img {
+.pkg-card:hover .pkg-bg-img {\n    will-change: transform;\n    transform: translateZ(0);
     transform: scale(1.05);
 }
 
@@ -2700,8 +2700,8 @@ a {
     height: 46px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2719,16 +2719,16 @@ a {
 }
 
 @media (max-width: 1024px) {
-    .pkg-card {
+    .pkg-card {\n    will-change: transform;\n    transform: translateZ(0);
         flex: 0 0 calc(50% - 16px) !important;
     }
 }
 @media (max-width: 768px) {
-    .pkg-card {
+    .pkg-card {\n    will-change: transform;\n    transform: translateZ(0);
         flex: 0 0 85% !important;
         min-width: 280px !important;
     }
-    .packages-slider {
+    .packages-slider {\n    will-change: transform, scroll-position;\n    transform: translateZ(0);
         padding: 0 20px 40px 20px;
     }
 }
@@ -2954,10 +2954,10 @@ a {
 .pkg-indicator-bar {
     position: absolute;
     top: 0; left: 0; height: 100%;
-    width: 15%; /* Default */
+    width: 100%; transform-origin: left; transform: scaleX(0.15); will-change: transform;
     background: #5b6c4b; /* Dark Green */
     border-radius: 6px;
-    transition: width 0.15s ease-out;
+    transition: transform 0.1s ease-out;
 }
 
 

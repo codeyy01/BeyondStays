@@ -399,12 +399,12 @@ function renderModernPackages() {
 
         const updateIndicator = () => {
             if (maxScroll <= 0) {
-                indicator.style.width = '100%';
+                indicator.style.transform = 'scaleX(1)';
                 return;
             }
             const scrollPercentage = (slider.scrollLeft / maxScroll);
             const availableWidth = 100 - minWidth;
-            indicator.style.width = (minWidth + (scrollPercentage * availableWidth)) + '%';
+            indicator.style.transform = `scaleX(${(minWidth + (scrollPercentage * availableWidth)) / 100})`;
         };
 
         window.addEventListener('resize', () => {
