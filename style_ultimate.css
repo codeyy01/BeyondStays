@@ -3485,5 +3485,6 @@ a {
         letter-spacing: 1px !important;
         padding: 12px 28px !important;
         font-family: var(--font-body) !important;
+        pointer-events: auto !important;
     }
 }
