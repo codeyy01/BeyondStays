@@ -902,16 +902,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function openPkgModal(pkg) {
-    if (window.packageAutoSlide) clearInterval(window.packageAutoSlide);
     const pkgModal = document.getElementById('pkgModal');
     const pkgModalBody = document.getElementById('pkgModalBody');
     const pkgModalWaBtn = document.getElementById('pkgModalWaBtn');
+    
+    if (window.packageAutoSlide) clearInterval(window.packageAutoSlide);
     
     let highlightsHtml = '';
     if (pkg.highlights && pkg.highlights.length > 0) {
         highlightsHtml = `
             <div class="pkg-m-section">
-                <h4>Highlights</h4>
+                <h4>✨ Trip Highlights</h4>
                 <ul class="pkg-m-list">
                     ${pkg.highlights.map(h => `<li class="incl"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> ${h.replace(/^[✓✔] /, '')}</li>`).join('')}
                 </ul>
@@ -921,7 +922,7 @@ function openPkgModal(pkg) {
 
     let incExcHtml = '';
     if ((pkg.inclusions && pkg.inclusions.length > 0) || (pkg.exclusions && pkg.exclusions.length > 0)) {
-        incExcHtml = `<div class="pkg-m-section"><h4>Inclusions & Exclusions</h4><ul class="pkg-m-list">`;
+        incExcHtml = `<div class="pkg-m-section"><h4>✅ Inclusions & ❌ Exclusions</h4><ul class="pkg-m-list">`;
         if (pkg.inclusions) {
             pkg.inclusions.forEach(inc => {
                 incExcHtml += `<li class="incl"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> ${inc.replace(/^[✓✔] /, '')}</li>`;
@@ -940,26 +941,60 @@ function openPkgModal(pkg) {
     if (mainDesc.includes('Condition:-')) {
         const parts = mainDesc.split('Condition:-');
         mainDesc = parts[0];
-        noteHtml = `<div class="pkg-m-note"><strong>Important Note:</strong><br>${parts[1]}</div>`;
+        noteHtml = `<div class="pkg-m-note"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg> <div><strong>Important Note:</strong><br>${parts[1]}</div></div>`;
     } else if (mainDesc.includes('Heavy Snowfall')) {
         const parts = mainDesc.split('Heavy Snowfall');
         mainDesc = parts[0];
-        noteHtml = `<div class="pkg-m-note"><strong>Heavy Snowfall Condition:</strong><br>${parts[1]}</div>`;
+        noteHtml = `<div class="pkg-m-note"><svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg> <div><strong>Heavy Snowfall Condition:</strong><br>${parts[1]}</div></div>`;
+    }
+
+    let imgUrl = 'https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg';
+    if (pkg.images && pkg.images.length > 0) {
+        imgUrl = pkg.images[0];
+    } else if (pkg.coverImage) {
+        imgUrl = pkg.coverImage;
+    } else if (pkg.placeName && pkg.placeName.toLowerCase().includes('goa')) {
+        imgUrl = 'https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg';
+    } else if (pkg.placeName && pkg.placeName.toLowerCase().includes('kashmir')) {
+        imgUrl = 'https://images.pexels.com/photos/5409673/pexels-photo-5409673.jpeg';
+    } else if (pkg.placeName && pkg.placeName.toLowerCase().includes('kasol')) {
+        imgUrl = 'https://images.pexels.com/photos/258421/pexels-photo-258421.jpeg';
+    } else if (pkg.placeName && pkg.placeName.toLowerCase().includes('manali')) {
+        imgUrl = 'https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg';
     }
 
     pkgModalBody.innerHTML = `
-        <h2 class="pkg-m-title">${pkg.placeName || pkg.name}</h2>
-        <div class="pkg-m-subtitle">${pkg.name}</div>
-        
-        <div class="pkg-m-meta">
-            <span><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg> ${pkg.duration || 'Custom Duration'}</span>
-            <span><svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.41l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.36-.36.59-.86.59-1.41s-.23-1.06-.59-1.41zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg> from ${pkg.price || 'Ask Price'}</span>
+        <div class="pkg-m-hero" style="background-image: url('${imgUrl}');">
+            <div class="pkg-m-hero-overlay"></div>
+            <div class="pkg-m-hero-content">
+                <h2 class="pkg-m-title">${pkg.placeName || pkg.name}</h2>
+                <div class="pkg-m-subtitle">${pkg.name}</div>
+            </div>
         </div>
+        
+        <div class="pkg-m-details">
+            <div class="pkg-m-meta-row">
+                <div class="pkg-m-meta-item">
+                    <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+                    <div>
+                        <small>Duration</small>
+                        <strong>${pkg.duration || 'Custom'}</strong>
+                    </div>
+                </div>
+                <div class="pkg-m-meta-item">
+                    <div class="icon-wrap"><svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.41l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.36-.36.59-.86.59-1.41s-.23-1.06-.59-1.41zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg></div>
+                    <div>
+                        <small>Starting from</small>
+                        <strong>${pkg.price || 'Ask Price'}</strong>
+                    </div>
+                </div>
+            </div>
 
-        <p class="pkg-m-desc">${mainDesc}</p>
-        ${noteHtml}
-        ${highlightsHtml}
-        ${incExcHtml}
+            <p class="pkg-m-desc">${mainDesc}</p>
+            ${noteHtml}
+            ${highlightsHtml}
+            ${incExcHtml}
+        </div>
     `;
 
     const waMsg = `Hi Beyondstays! I am interested in the ${pkg.name} package. Can you share more details?`;
