@@ -3439,3 +3439,37 @@ a {
     #policy.section { padding-top: 40px !important; }
     .packages-slider-container { padding-bottom: 0 !important; }
 }
+
+/* --- SUPER ANIMATED SCROLL INDICATOR --- */
+.scroll-indicator-super {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+.scroll-indicator-super .chevron {
+    width: 20px;
+    height: 20px;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(45deg);
+    animation: bounceChevron 2s infinite;
+    margin-top: -10px;
+}
+.scroll-indicator-super .chevron:nth-child(1) { animation-delay: 0s; }
+.scroll-indicator-super .chevron:nth-child(2) { animation-delay: 0.15s; }
+.scroll-indicator-super .chevron:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes bounceChevron {
+    0% { opacity: 0; transform: rotate(45deg) translate(-10px, -10px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(10px, 10px); }
+}
