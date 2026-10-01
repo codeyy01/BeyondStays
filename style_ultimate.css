@@ -3473,3 +3473,17 @@ a {
     50% { opacity: 1; }
     100% { opacity: 0; transform: rotate(45deg) translate(10px, 10px); }
 }
+
+/* --- MOBILE EXPLORE BUTTON FIX --- */
+.mobile-explore-btn { display: none !important; }
+
+@media (max-width: 768px) {
+    .desktop-explore-btn { display: none !important; }
+    .mobile-explore-btn { 
+        display: inline-block !important; 
+        font-size: 1.1rem !important;
+        letter-spacing: 1px !important;
+        padding: 12px 28px !important;
+        font-family: var(--font-body) !important;
+    }
+}
