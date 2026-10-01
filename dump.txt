@@ -1,0 +1,30 @@
+                <p class="section-sub">Swipe to explore our carefully curated travel packages.</p>
+            </div>
+            
+                        <!-- Modern Slider -->
+            <div class="packages-slider-container">
+                <button class="pkg-arrow pkg-prev" id="pkgPrev"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
+                <button class="pkg-arrow pkg-next" id="pkgNext"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></button>
+                
+                <div class="packages-slider" id="packagesSlider">
+                    <!-- Packages will be injected here via JS -->
+                </div>
+                
+                <!-- Slide Indicator -->
+                <div class="pkg-indicator-wrap">
+                    <div class="pkg-indicator">
+                        <div class="pkg-indicator-bar" id="pkgIndicatorBar"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════ REFUND POLICY ═══════════════════════════════ -->
+    <!-- ------------------------------- REFUND POLICY ------------------------------- -->
+    <section class="policy section" id="policy">
+        <div class="container">
+            <div class="section-header policy-header">
+                <div class="section-eyebrow policy-eyebrow">Transparency & Trust</div>
+                <h2 class="section-title policy-title">Refund & <em>Cancellation Policy</em></h2>
