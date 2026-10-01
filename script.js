@@ -361,7 +361,7 @@ function renderModernPackages() {
                 
                 <div class="pkg-action-row">
                     <a href="#" class="pkg-btn">View Package</a>
-                    <a href="https://wa.me/919999999999?text=${encodeURIComponent('Hi Beyondstays! I am interested in the ' + pkg.name + ' package at ' + pkg.placeName + '. Can you share more details?')}" target="_blank" class="pkg-arrow-btn">
+                    <a href="https://wa.me/917306023388?text=${encodeURIComponent('Hi Beyondstays! I am interested in the ' + pkg.name + ' package at ' + pkg.placeName + '. Can you share more details?')}" target="_blank" class="pkg-arrow-btn">
                         <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                     </a>
                 </div>
@@ -1003,7 +1003,7 @@ function openPkgModal(pkg) {
     `;
 
     const waMsg = `Hi Beyondstays! I am interested in the ${pkg.name} package. Can you share more details?`;
-    pkgModalWaBtn.href = `https://wa.me/919999999999?text=${encodeURIComponent(waMsg)}`;
+    pkgModalWaBtn.href = `https://wa.me/917306023388?text=${encodeURIComponent(waMsg)}`;
 
     pkgModal.classList.add('active');
     document.body.style.overflow = 'hidden';
