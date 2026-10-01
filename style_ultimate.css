@@ -448,7 +448,8 @@ a {
     transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 .loader-logo {
-    width: 250px;
+    width: 180px;
+    max-width: 90vw;
     margin-bottom: 40px;
     opacity: 0;
     animation: fadeInLogo 1s ease forwards 0.2s;
