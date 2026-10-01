@@ -431,36 +431,6 @@ function renderModernPackages() {
         }, 500);
     }
     
-    // Add slide indicators
-    const container = slider.parentElement;
-    let dotsContainer = document.getElementById('pkgSliderDots');
-    if (!dotsContainer) {
-        dotsContainer = document.createElement('div');
-        dotsContainer.id = 'pkgSliderDots';
-        dotsContainer.className = 'pkg-slider-indicators';
-        container.appendChild(dotsContainer);
-    }
-    dotsContainer.innerHTML = '';
-    
-    allPackages.forEach((_, i) => {
-        const dot = document.createElement('div');
-        dot.className = `pkg-indicator ${i === 0 ? 'active' : ''}`;
-        dot.onclick = () => {
-            const cardWidth = slider.querySelector('.pkg-card').offsetWidth + 24;
-            slider.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
-        };
-        dotsContainer.appendChild(dot);
-    });
-    
-    // Update active dot on scroll
-    slider.addEventListener('scroll', () => {
-        const cardWidth = slider.querySelector('.pkg-card').offsetWidth + 24;
-        const activeIdx = Math.round(slider.scrollLeft / cardWidth);
-        document.querySelectorAll('.pkg-indicator').forEach((dot, i) => {
-            dot.classList.toggle('active', i === activeIdx);
-        });
-    });
-    
     // Auto slide
     if (window.packageAutoSlide) clearInterval(window.packageAutoSlide);
     window.packageAutoSlide = setInterval(() => {
